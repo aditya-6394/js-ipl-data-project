@@ -3,35 +3,33 @@ const matchesPerYear = require('../src/server/1-matches-per-year');
 
 const data = [
   {
-    season: '2001',
+    season: '2008',
   },
   {
-    season: '2002',
+    season: '2008',
   },
   {
-    season: '2002',
+    season: '2010',
   },
 
   {
-    season: '2003',
+    season: '2010',
   },
   {
-    season: '2004',
+    season: '2010',
   },
   {
-    season: '2004',
+    season: '2011',
   },
   {
-    season: '2005',
+    season: '2011',
   },
 ];
 
-test('Calculation of matches per year', () => {
+test('Matches per year', () => {
   expect(matchesPerYear(data)).toMatchObject({
-    2001: 1,
-    2002: 2,
-    2003: 1,
-    2004: 2,
-    2005: 1,
+    2008: 2,
+    2010: 3,
+    2011: 2,
   });
 });
