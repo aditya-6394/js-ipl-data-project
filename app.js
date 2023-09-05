@@ -8,7 +8,7 @@ const calculateExtraRunsByBowlingTeam = require('./src/server/3-extra-runs-conce
 const topTenEconomicalBowlers = require('./src/server/4-top-10-economical-bowlers-in-2015');
 const tossAndGameWinner = require('./src/server/5-won-the-toss-and-match');
 const playerOfMatch = require('./src/server/6-highest-player-award');
-// const strikeRateOfBatsman = require('./src/server/7-strike-rate-of-batsman-per-season');
+const strikeRateOfBatsmanPerSeason = require('./src/server/7-strike-rate-of-batsman-per-season');
 const highestDismissals = require('./src/server/8-highest-dismissial-of-batsman-by-a-bowler');
 const bestEconomySuperOver = require('./src/server/9-bowler-with-best-economy-in-super-over');
 
@@ -22,7 +22,10 @@ readAndWriteCSV(
 readAndWriteCSV(topTenEconomicalBowlers, '4-top-10-economical-bowlers-in-2015');
 readAndWriteCSV(tossAndGameWinner, '5-won-the-toss-and-match');
 readAndWriteCSV(playerOfMatch, '6-highest-player-award');
-// readAndWriteCSV(strikeRateOfBatsman, '7-strike-rate-of-batsman-per-season');
+readAndWriteCSV(
+  strikeRateOfBatsmanPerSeason,
+  '7-strike-rate-of-batsman-per-season',
+);
 readAndWriteCSV(
   highestDismissals,
   '8-highest-dismissial-of-batsman-by-a-bowler',
