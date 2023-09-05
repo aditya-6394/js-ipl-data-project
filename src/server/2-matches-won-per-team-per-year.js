@@ -11,6 +11,7 @@ function matchesWonPerTeam(matches) {
       }
     } else {
       matchesWonPerTeam[year] = {};
+      matchesWonPerTeam[year][team] = 1;
     }
   }
   return matchesWonPerTeam;
