@@ -3,8 +3,8 @@ function matchesWonPerTeam(matches) {
   for (let match of matches) {
     let year = match['season'];
     let team = match['winner'];
-    if (matchesWonPerTeam[year] != undefined) {
-      if (matchesWonPerTeam[year][team] != undefined) {
+    if (matchesWonPerTeam[year] !== undefined) {
+      if (matchesWonPerTeam[year][team] !== undefined) {
         matchesWonPerTeam[year][team] += 1;
       } else {
         matchesWonPerTeam[year][team] = 1;

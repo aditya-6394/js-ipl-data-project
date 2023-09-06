@@ -1,7 +1,7 @@
 function topTenEconomicalBowlers(matches, deliveries) {
   const matchesIn2015 = [];
   for (let match of matches) {
-    if (match.season == '2015') {
+    if (match.season === '2015') {
       matchesIn2015.push(match.id);
     }
   }

@@ -1,6 +1,6 @@
 function bestEconomySuperOver(_, deliveries) {
   const superOver = deliveries.filter((delivery) => {
-    if (delivery.is_super_over == '1') {
+    if (delivery.is_super_over === '1') {
       return delivery;
     }
   });

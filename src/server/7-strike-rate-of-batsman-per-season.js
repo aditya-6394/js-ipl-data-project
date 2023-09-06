@@ -1,7 +1,7 @@
 function strikeRateOfBatsmanPerSeason(matches, deliveries) {
   const matchIdSeasonMap = {};
   matches.map((match) => {
-    if (matchIdSeasonMap[match.id] == undefined) {
+    if (matchIdSeasonMap[match.id] === undefined) {
       matchIdSeasonMap[match.id] = match.season;
     }
   });
@@ -15,7 +15,7 @@ function strikeRateOfBatsmanPerSeason(matches, deliveries) {
       batsmanStats[batsman] = {};
       batsmanStats[batsman][season] = {};
       batsmanStats[batsman][season]['runs_scored'] = runs;
-      if (delivery.wide_runs != '0' || delivery.noball_runs != 0) {
+      if (delivery.wide_runs !== '0' || delivery.noball_runs !== 0) {
         batsmanStats[batsman][season]['balls_faced'] = 0;
       } else {
         batsmanStats[batsman][season]['balls_faced'] = 1;
@@ -24,14 +24,14 @@ function strikeRateOfBatsmanPerSeason(matches, deliveries) {
       if (!batsmanStats[batsman][season]) {
         batsmanStats[batsman][season] = {};
         batsmanStats[batsman][season]['runs_scored'] = runs;
-        if (delivery.wide_runs != '0' || delivery.noball_runs != 0) {
+        if (delivery.wide_runs !== '0' || delivery.noball_runs !== 0) {
           batsmanStats[batsman][season]['balls_faced'] = 0;
         } else {
           batsmanStats[batsman][season]['balls_faced'] = 1;
         }
       } else {
         batsmanStats[batsman][season]['runs_scored'] += runs;
-        if (delivery.wide_runs != '0' || delivery.noball_runs != 0) {
+        if (delivery.wide_runs !== '0' || delivery.noball_runs !== 0) {
           batsmanStats[batsman][season]['balls_faced'] += 0;
         } else {
           batsmanStats[batsman][season]['balls_faced'] += 1;

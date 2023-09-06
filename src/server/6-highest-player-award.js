@@ -5,8 +5,8 @@ function playerOfMatch(matches) {
   for (let match of matches) {
     let season = match.season;
     let player = match.player_of_match;
-    if (awards[season] != undefined) {
-      if (awards[season][player] != undefined) {
+    if (awards[season] !== undefined) {
+      if (awards[season][player] !== undefined) {
         awards[season][player] += 1;
       } else {
         awards[season][player] = 1;
@@ -21,7 +21,7 @@ function playerOfMatch(matches) {
     const max = Math.max(...Object.values(awards[season]));
     maxPlayerOfMatch[season] = {};
     for (let key in awards[season]) {
-      if (awards[season][key] == max) {
+      if (awards[season][key] === max) {
         maxPlayerOfMatch[season][key] = awards[season][key];
       }
     }
