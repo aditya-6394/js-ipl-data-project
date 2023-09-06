@@ -6,10 +6,11 @@ function calculateExtraRunsByBowlingTeam(matches, deliveries) {
     return acc;
   }, []);
 
+  let setOfMatchesIn2016 = new Set(matchesIn2016);
   const extraRuns = {};
 
   deliveries.forEach((delivery) => {
-    if (matchesIn2016.includes(delivery.match_id)) {
+    if (setOfMatchesIn2016.has(delivery.match_id)) {
       extraRuns[delivery.bowling_team] =
         (extraRuns[delivery.bowling_team] || 0) + Number(delivery.extra_runs);
     }
@@ -17,5 +18,4 @@ function calculateExtraRunsByBowlingTeam(matches, deliveries) {
 
   return extraRuns;
 }
-
 module.exports = calculateExtraRunsByBowlingTeam;
