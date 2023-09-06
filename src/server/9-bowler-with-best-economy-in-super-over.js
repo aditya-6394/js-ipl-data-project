@@ -1,11 +1,11 @@
 function bestEconomySuperOver(_, deliveries) {
-  const superOver = deliveries.filter((delivery) => {
+  const superOverDeliveries = deliveries.filter((delivery) => {
     if (delivery.is_super_over === '1') {
       return delivery;
     }
   });
   const superOverBowlerData = {};
-  for (let delivery of superOver) {
+  for (let delivery of superOverDeliveries) {
     if (!superOverBowlerData[delivery['bowler']]) {
       superOverBowlerData[delivery['bowler']] = {
         total_runs:
