@@ -1,9 +1,10 @@
 function bestEconomySuperOver(_, deliveries) {
-  const superOverDeliveries = deliveries.filter((delivery) => {
+  let superOverDeliveries = [];
+  for (let delivery of deliveries) {
     if (delivery.is_super_over === '1') {
-      return delivery;
+      superOverDeliveries.push(delivery);
     }
-  });
+  }
   const superOverBowlerData = {};
   for (let delivery of superOverDeliveries) {
     if (!superOverBowlerData[delivery['bowler']]) {
@@ -22,19 +23,23 @@ function bestEconomySuperOver(_, deliveries) {
       superOverBowlerData[delivery['bowler']]['total_balls'] += 1;
     }
   }
-  const bowlerEconomy = {};
+  const bowlerEconomyInSuperOver = {};
   for (const bowler in superOverBowlerData) {
-    bowlerEconomy[bowler] =
+    bowlerEconomyInSuperOver[bowler] =
       superOverBowlerData[bowler]['total_runs'] /
       (superOverBowlerData[bowler]['total_balls'] / 6);
   }
-  const sortedObject = Object.entries(bowlerEconomy).sort(
+  const sortedObject = Object.entries(bowlerEconomyInSuperOver).sort(
     (x, y) => x[1] - y[1],
   );
-  // console.log(sortedObject);
-  const player = {};
-  player[sortedObject[0][0]] = sortedObject[0][1];
-  return player;
+  let bestEconomy = {};
+  for (let bowler of sortedObject) {
+    if (bowler[1] === sortedObject[0][1]) {
+      let bow = bowler[0];
+      bestEconomy[bow] = bowler[1];
+    }
+  }
+  return bestEconomy;
 }
 
 module.exports = bestEconomySuperOver;
